@@ -43,6 +43,6 @@
 ## Demo
 
 
-![Demo Video](demo.avi)
+![Demo](demo.png)
 
-You can download and watch the demo video by [clicking here](demo.avi).
+You can download and watch the demo video by [clicking here](demo.mov).
