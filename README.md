@@ -3,7 +3,7 @@
   <img src="check.png" alt="ToDo List Web App" width="50">
 </p>
 
-<h1 align="center">To Do List</h1>
+<h1 align="center">To Do List ༼ つ ◕_◕ ༽つ <3 </h1>
 
 <p align="center">
   <strong>A simple, minimalist To Do list web app to track your tasks and goals.</strong>
