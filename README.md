@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="check.png" alt="ToDo List Web App">
+  <img src="check.png" alt="ToDo List Web App" width="50">
 </p>
 
 <h1 align="center">To Do List</h1>
