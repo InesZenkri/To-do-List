@@ -13,8 +13,8 @@
   <a href="#technologies-used">Technologies Used</a> •
   <a href="#features">Features</a> •
   <a href="#how-to-use">How to Use</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#license">License</a>
+  <a href="#demo">Demo</a> •
+ 
 </p>
 
 ## Technologies Used
@@ -39,3 +39,10 @@
 2. Open`todo.html` in your preferred web browser.
 
 3. Start organizing your tasks and achieving your goals! 
+
+## Demo
+
+
+![Demo Video](demo.mov)
+
+You can download and watch the demo video by [clicking here](demo.mov).
