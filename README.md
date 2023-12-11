@@ -41,8 +41,8 @@
 
 2. **or simply go to:**
 
-  `https://ineszenkri.github.io/To-do-List/`
-
+  [ineszenkri.github.io/To-do-List](https://ineszenkri.github.io/To-do-List/)
+  
 3. Start organizing your tasks and achieving your goals! 
 
 ## Demo
