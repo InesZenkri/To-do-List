@@ -33,12 +33,17 @@
 
 1. **Clone the repository**:
 
-   ```bash
+  -  ```bash
    git clone https://github.com/InesZenkri/To-do-List.git
    ```
-2. Open`todo.html` in your preferred web browser.
 
-3. Start organizing your tasks and achieving your goals! 
+  - Open`index.html` in your preferred web browser.
+
+2. **or simply go to:**
+
+  `https://ineszenkri.github.io/To-do-List/`
+
+2. Start organizing your tasks and achieving your goals! 
 
 ## Demo
 
