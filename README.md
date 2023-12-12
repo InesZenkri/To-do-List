@@ -29,6 +29,7 @@
 - Mark tasks as completed with a visually satisfying circle indicator.
 - Tasks automatically disappear upon completion, keeping your list tidy.
 - The tasks are stored in the browser's local storage, ensuring they persist across sessions.
+- Click on the "History" button to view a list of completed tasks along with their timestamps.
 
 ## How to Use
 
