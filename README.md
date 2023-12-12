@@ -6,7 +6,7 @@
 <h1 align="center">To Do List ༼ つ ◕_◕ ༽つ <3 </h1>
 
 <p align="center">
-  <strong>A simple, minimalist To Do list web app to track your tasks and goals.</strong>
+  <strong>A simple, minimalist To Do list web app to track your tasks and goals that utilizes local storage to persist them even after the page is refreshed or closed  • ᴗ - </strong>
 </p>
 
 <p align="center">
@@ -21,27 +21,28 @@
 
 - HTML5
 - CSS3
-- Vanilla JavaScript
+- JavaScript
 
 ## Features
 
 - Easily add tasks with a goal marker.
 - Mark tasks as completed with a visually satisfying circle indicator.
 - Tasks automatically disappear upon completion, keeping your list tidy.
+- The tasks are stored in the browser's local storage, ensuring they persist across sessions.
 
 ## How to Use
 
 1. **Clone the repository**:
 
-   ```bash
-   git clone https://github.com/InesZenkri/To-do-List.git
-   ```
+      ``` bash
+      git clone https://github.com/InesZenkri/To-do-List.git
+      ```
   
-  - Open`index.html` in your preferred web browser.
+   - Open`index.html` in your preferred web browser.
 
-2. **or simply go to:**
+2. **Or simply visit :**
 
-  [ineszenkri.github.io/To-do-List](https://ineszenkri.github.io/To-do-List/)
+   - [ineszenkri.github.io/To-do-List](https://ineszenkri.github.io/To-do-List/)
   
 3. Start organizing your tasks and achieving your goals! 
 
