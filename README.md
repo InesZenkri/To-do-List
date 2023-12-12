@@ -51,4 +51,4 @@
 
 ![Demo](demo.png)
 
-You can download and watch the demo video by [clicking here](demo.mov).
+You can download and watch the demo video by [clicking here](demo.gif).
