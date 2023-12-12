@@ -8,11 +8,18 @@
 </head>
 <body>
   <div class="container">
-        <h1 class="title">To Do List ༼ つ ◕_◕ ༽つ</h1>
-    <input type="text" id="taskInput" placeholder="Add a new task">
-    <button onclick="addTask()">Add Task</button>
+    <h1 class="title">To Do List ༼ つ ◕_◕ ༽つ</h1>
+    <div class="input-buttons">
+      <input type="text" id="taskInput" placeholder="Add a new task">
+      <button onclick="addTask()">Add Task</button>
+      <button onclick="toggleSidebar()">History</button>
+    </div>
     <ul id="taskList"></ul>
+    <div class="sidebar" id="sidebar"></div>
   </div>
+
+  
+
   <script src="todo.js"></script>
 </body>
 </html>
