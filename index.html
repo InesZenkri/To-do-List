@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <title>To-Do List</title>
   <link rel="stylesheet" href="todo.css">
-  <link rel="icon" href="check.png" type="image/x-icon">
+  <link rel="icon" href="srs/check.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
 </head>
 <body>
   <div class="container">
@@ -14,14 +13,21 @@
     <div class="input-buttons">
       <input type="text" id="taskInput" placeholder="Add a new task">
       <button onclick="addTask()">Add Task</button>
-      <button onclick="toggleSidebar()">History</button>
     </div>
     <ul id="taskList"></ul>
-    <div class="sidebar" id="sidebar"></div>
   </div>
 
+  <div class="dropdown">
+    <div class="history-button">
+      <img src="srs/history.png" alt="History" class="history-icon">
+      <h4>Navigate through your History</h4>
+      <div onclick="toggleDropdown()">
+        <img src="srs/up.png" alt="Up Arrow" class="up-icon">
+      </div>
+    </div>
+      <ul id="deletedTasksList"></ul>
+  </div>
   
-
   <script src="todo.js"></script>
 </body>
 </html>

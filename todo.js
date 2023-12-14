@@ -2,7 +2,12 @@ let completedTasks = JSON.parse(localStorage.getItem('completedTasks')) || [];
 
 window.onload = function() {
   loadTasks();
-  populateSidebar(); 
+
+  document.querySelector('.up-icon').addEventListener('click', function() {
+    showDeletedTasks(); 
+    toggleDropdown();
+  });
+  
 };
 
 function loadTasks() {
@@ -38,6 +43,7 @@ function loadTasks() {
   }
 }
 
+
 function saveTasks() {
   var taskList = document.getElementById("taskList");
   localStorage.setItem("tasks", taskList.innerHTML);
@@ -60,17 +66,18 @@ function saveCompletedTasks() {
   localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
 }
 
-function populateSidebar() {
-  const sidebar = document.getElementById('sidebar');
-
-  const historyHTML = completedTasks.map(task => {
-    return `<div class="history-item">
-              <p>${task.taskName}</p>
-              <p class="timestamp">${task.timestamp}</p>
-            </div>`;
+function showDeletedTasks() {
+  const deletedTasksList = document.getElementById('deletedTasksList');
+  const containerWidth = document.querySelector('.dropdown').offsetWidth;
+  const deletedHTML = completedTasks.map(task => {
+    return `<li class="deleted-task">
+              <span>${task.taskName}</span>
+              <span class="timestamp">${task.timestamp}</span>
+            </li>`;
   }).join('');
 
-  sidebar.innerHTML = historyHTML;
+  deletedTasksList.innerHTML = deletedHTML;
+  deletedTasksList .style.width = containerWidth - 40 + 'px';
 }
 
 function makeTaskEditable(taskElement) {
@@ -124,7 +131,7 @@ function addTask() {
       setTimeout(function() {
         li.remove();
         saveTasks();
-      }, 100
+      }, 1000
       );
     };
 
@@ -136,14 +143,24 @@ function addTask() {
   taskInput.value = "";
 }
 
-function toggleSidebar() {
-  const sidebar = document.getElementById('sidebar');
-  sidebar.classList.toggle('show'); 
-
-  if (sidebar.classList.contains('show')) {
-    populateSidebar(); 
-  }
+function toggleDropdown() {
+  document.getElementById("myDropdown").classList.toggle("show");
 }
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+};
+
+
+
 document.addEventListener('keypress', function(e) {
   if (e.key === 'Enter' && document.activeElement === document.getElementById('taskInput')) {
     addTask();
