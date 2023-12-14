@@ -26,7 +26,8 @@ function loadTasks() {
         setTimeout(function() {
           li.remove();
           saveTasks();
-        }, 4000);
+        }, 1000
+        );
       };
 
       let textSpan = li.querySelector('span:last-child');
@@ -123,7 +124,8 @@ function addTask() {
       setTimeout(function() {
         li.remove();
         saveTasks();
-      }, 4000);
+      }, 100
+      );
     };
 
     textSpan.onclick = function(event) {
