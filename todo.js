@@ -7,7 +7,6 @@ window.onload = function() {
     showDeletedTasks(); 
     toggleDropdown();
   });
-  
 };
 
 function loadTasks() {
@@ -23,6 +22,12 @@ function loadTasks() {
         makeTaskEditable(li);
       };
 
+      let editIcon = li.querySelector('.edit-icon');
+      editIcon.onclick = function(event) {
+        event.stopPropagation();
+        makeTaskEditable(li);
+      };
+
       let circleSpan = li.querySelector('.circle');
       circleSpan.onclick = function(event) {
         event.stopPropagation();
@@ -35,7 +40,7 @@ function loadTasks() {
         );
       };
 
-      let textSpan = li.querySelector('span:last-child');
+      let textSpan = li.querySelector('.task-text');
       textSpan.onclick = function(event) {
         event.stopPropagation();
       };
@@ -43,14 +48,13 @@ function loadTasks() {
   }
 }
 
-
 function saveTasks() {
   var taskList = document.getElementById("taskList");
   localStorage.setItem("tasks", taskList.innerHTML);
 }
 
 function markTaskAsCompleted(taskElement) {
-  const taskName = taskElement.querySelector("span:last-child").innerText;
+  const taskName = taskElement.querySelector(".task-text").innerText;
   const timestamp = new Date().toLocaleString();
   
   const taskDetails = {
@@ -77,23 +81,23 @@ function showDeletedTasks() {
   }).join('');
 
   deletedTasksList.innerHTML = deletedHTML;
-  deletedTasksList .style.width = containerWidth - 40 + 'px';
+  deletedTasksList.style.width = containerWidth - 40 + 'px';
 }
 
 function makeTaskEditable(taskElement) {
-  const textSpan = taskElement.querySelector("span:last-child");
+  const textSpan = taskElement.querySelector(".task-text");
   textSpan.contentEditable = true;
   textSpan.focus();
 
-  textSpan.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
+  textSpan.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
       textSpan.contentEditable = false;
       textSpan.blur();
       saveTasks();
     }
   });
 
-  textSpan.addEventListener('blur', function() {
+  textSpan.addEventListener("blur", function () {
     textSpan.contentEditable = false;
     saveTasks();
   });
@@ -110,9 +114,16 @@ function addTask() {
   li.appendChild(circleSpan);
 
   var textSpan = document.createElement("span");
+  textSpan.className = "task-text";
   var textNode = document.createTextNode(inputValue);
   textSpan.appendChild(textNode);
   li.appendChild(textSpan);
+
+  var editIcon = document.createElement("img");
+  editIcon.src = "srs/edit.png";
+  editIcon.alt = "Edit";
+  editIcon.className = "edit-icon";
+  li.appendChild(editIcon);
 
   if (inputValue === '') {
     alert("Please enter a task!");
@@ -121,6 +132,11 @@ function addTask() {
     saveTasks();
 
     li.ondblclick = function() {
+      makeTaskEditable(li);
+    };
+
+    editIcon.onclick = function(event) {
+      event.stopPropagation();
       makeTaskEditable(li);
     };
 
@@ -158,8 +174,6 @@ window.onclick = function(event) {
     }
   }
 };
-
-
 
 document.addEventListener('keypress', function(e) {
   if (e.key === 'Enter' && document.activeElement === document.getElementById('taskInput')) {

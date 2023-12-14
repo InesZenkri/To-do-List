@@ -8,6 +8,7 @@ body {
   
   .container {
     max-width: 600px;
+    position: relative;
     margin: 20px auto;
     background-color: #292929;
     padding: 20px;
@@ -92,7 +93,7 @@ body {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: #ccc;
+    background-color: #292929;
     margin-right: 10px;
     position: relative;
   }
@@ -174,6 +175,14 @@ body {
     justify-content: space-between;
     margin-bottom: 5px; 
   }
+
+  .edit-icon{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 30px;
+  }
+
 
 
   
