@@ -1,4 +1,3 @@
-
 let completedTasks = JSON.parse(localStorage.getItem('completedTasks')) || [];
 
 window.onload = function() {
@@ -15,15 +14,24 @@ function loadTasks() {
     var listItems = document.querySelectorAll("#taskList li");
 
     listItems.forEach(function(li) {
-      li.onclick = function() {
-        if (!li.classList.contains("checked")) {
-          li.classList.add("checked");
-          markTaskAsCompleted(li);
-          setTimeout(function() {
-            li.remove();
-            saveTasks();
-          }, 4000);
-        }
+      li.ondblclick = function() {
+        makeTaskEditable(li);
+      };
+
+      let circleSpan = li.querySelector('.circle');
+      circleSpan.onclick = function(event) {
+        event.stopPropagation();
+        li.classList.toggle("checked");
+        markTaskAsCompleted(li);
+        setTimeout(function() {
+          li.remove();
+          saveTasks();
+        }, 4000);
+      };
+
+      let textSpan = li.querySelector('span:last-child');
+      textSpan.onclick = function(event) {
+        event.stopPropagation();
       };
     });
   }
@@ -64,10 +72,28 @@ function populateSidebar() {
   sidebar.innerHTML = historyHTML;
 }
 
+function makeTaskEditable(taskElement) {
+  const textSpan = taskElement.querySelector("span:last-child");
+  textSpan.contentEditable = true;
+  textSpan.focus();
+
+  textSpan.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      textSpan.contentEditable = false;
+      textSpan.blur();
+      saveTasks();
+    }
+  });
+
+  textSpan.addEventListener('blur', function() {
+    textSpan.contentEditable = false;
+    saveTasks();
+  });
+}
+
 function addTask() {
   var taskInput = document.getElementById("taskInput");
   var taskList = document.getElementById("taskList");
-
   var li = document.createElement("li");
   var inputValue = taskInput.value;
 
@@ -85,20 +111,27 @@ function addTask() {
   } else {
     taskList.appendChild(li);
     saveTasks();
-  }
 
-  taskInput.value = "";
+    li.ondblclick = function() {
+      makeTaskEditable(li);
+    };
 
-  li.onclick = function() {
-    if (!li.classList.contains("checked")) {
-      li.classList.add("checked");
+    circleSpan.onclick = function(event) {
+      event.stopPropagation();
+      li.classList.toggle("checked");
       markTaskAsCompleted(li);
       setTimeout(function() {
         li.remove();
         saveTasks();
       }, 4000);
-    }
-  };
+    };
+
+    textSpan.onclick = function(event) {
+      event.stopPropagation();
+    };
+  }
+
+  taskInput.value = "";
 }
 
 function toggleSidebar() {
@@ -109,3 +142,8 @@ function toggleSidebar() {
     populateSidebar(); 
   }
 }
+document.addEventListener('keypress', function(e) {
+  if (e.key === 'Enter' && document.activeElement === document.getElementById('taskInput')) {
+    addTask();
+  }
+});
