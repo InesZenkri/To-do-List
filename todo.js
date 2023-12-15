@@ -75,13 +75,13 @@ function showDeletedTasks() {
   const containerWidth = document.querySelector('.dropdown').offsetWidth;
   const deletedHTML = completedTasks.map(task => {
     return `<li class="deleted-task">
-              <span>${task.taskName}</span>
+              <span class="deltxt">${task.taskName}</span>
               <span class="timestamp">${task.timestamp}</span>
             </li>`;
   }).join('');
 
   deletedTasksList.innerHTML = deletedHTML;
-  deletedTasksList.style.width = containerWidth - 40 + 'px';
+  
 }
 
 function makeTaskEditable(taskElement) {

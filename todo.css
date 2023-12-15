@@ -78,6 +78,7 @@ button:hover {
 ul {
   list-style-type: none;
   padding: 0;
+  
 }
 
 li {
@@ -144,16 +145,6 @@ li {
   z-index: 1;
 }
 
-.dropdown-content {
-  display: inline;
-  position: absolute;
-  background-color: #292929;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  top: 50px;
-}
-
 .dropdown-content.show {
   display: block;
 }
@@ -168,7 +159,6 @@ li {
 .up-icon {
   transform: scaleY(-1);
 }
-
 .deleted-task {
   padding: 10px;
   border-bottom: 1px solid #444;
@@ -183,8 +173,13 @@ li {
 .timestamp {
   font-size: 12px;
   color: #888;
-  margin-left: 20px;
-  flex-shrink: 0;
+  margin-left: 70%;
+}
+.deltxt {
+  font-size: 14px;
+}
+.task-text {
+  font-size: 14px;
 }
 
 #deletedTasksList {
@@ -196,6 +191,7 @@ li {
 .deleted-task:last-child {
   border-bottom: none;
 }
+
 
 @keyframes fadeOut {
   0% { opacity: 1; }
@@ -218,6 +214,7 @@ li {
   .input-buttons button {
     padding: 6px 12px;
   }
+ 
 }
 
 
@@ -233,4 +230,5 @@ li {
   #taskInput {
     width: 50%;
   }
+
 }
