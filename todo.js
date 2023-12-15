@@ -160,7 +160,8 @@ function addTask() {
 }
 
 function toggleDropdown() {
-  document.getElementById("myDropdown").classList.toggle("show");
+  const dropdown = document.querySelector('.dropdown');
+  dropdown.classList.toggle('show');
 }
 
 window.onclick = function(event) {

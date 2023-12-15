@@ -1,193 +1,236 @@
 body {
-    font-family: 'Fira Code', monospace;
-    margin: 0;
-    padding: 0;
-    background-color: #1f1f1f;
-    color: #fff;
-  }
-  
-  .container {
-    max-width: 600px;
-    position: relative;
-    margin: 20px auto;
-    background-color: #292929;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-
-  .input-buttons {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; 
-  }
-  
-  h1 {
-    text-align: center;
-    font-size: 36px;
-  }
-  
-  h4 {
-    margin: 0;
-    flex: 1;
-    color: #fff;
-    font-size: 16px;
-    margin-left: 10px; 
-  }
-  
-  #taskInput {
-    width: 70%;
-    padding: 8px;
-    background-color: #444;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    flex: 1;
-  }
-  
-  .input-buttons button {
-    padding: 8px 16px;
-    background-color: #ff6c00;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
-  
-  h1.title {
-    white-space: nowrap; 
-  }
-
-  button:hover {
-    background-color: #ff9500;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    padding: 10px;
-    border-bottom: 1px solid #444;
-    display: flex;
-    align-items: center;
-  }
-  
-  .circle {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    border: 2px solid #ff6c00;
-    margin-right: 10px;
-  }
-  
-  .checked .circle {
-    background-color: #ff6c00;
-  }
-  
-  .checked span {
-    text-decoration: line-through;
-    color: #888;
-  }
-
-  .circle {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: #292929;
-    margin-right: 10px;
-    position: relative;
-  }
-  
-  .checked .circle::after {
-    content: '\2713';
-    display: inline-block;
-    font-size: 12px;
-    color: green;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: fadeOut 4s;
-  }
-  
-  @keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
-  }
-
-  
-  .history-button {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    background-color: #292929;
-    border-radius: 8px;
-    padding: 10px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .up-icon, .history-icon {
-    width: 25px;
-    height: 25px;
-    flex: 0 0 auto;
-  }
-
-  .up-icon{
-    transform: scaleY(-1);
-  }
-
-.dropdown{
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: #292929;
-    padding: 20px;
-    border-radius: 8px;
-    align-items: center;
-    position: relative;
-
+  font-family: 'Fira Code', monospace;
+  margin: 0;
+  padding: 0;
+  background-color: #1f1f1f;
+  color: #fff;
 }
-  .dropdown-content {
-    display:inline ;
-    position: absolute;
-    background-color: #292929; 
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    top: 50px; 
+
+.container {
+  max-width: 90%;
+  min-width: 300px;
+  margin: 20px auto;
+  position: relative;
+  background-color: #292929;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown {
+  max-width: 90%;
+  min-width: 300px;
+  margin: 20px auto;
+  background-color: #292929;
+  padding: 20px;
+  border-radius: 8px;
+  align-items: center;
+  position: relative;
+}
+
+.input-buttons {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; 
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+}
+
+h4 {
+  margin: 0;
+  flex: 1;
+  color: #fff;
+  font-size: 16px;
+  margin-left: 10px; 
+}
+
+#taskInput {
+  width: 70%;
+  padding: 8px;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.input-buttons button {
+  padding: 8px 16px;
+  background-color: #ff6c00;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+h1.title {
+  white-space: nowrap; 
+}
+
+button:hover {
+  background-color: #ff9500;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  border-bottom: 1px solid #444;
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #ff6c00;
+  margin-right: 10px;
+}
+
+.checked .circle {
+  background-color: #ff6c00;
+}
+
+.checked span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.circle {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #292929;
+  margin-right: 10px;
+  position: relative;
+}
+
+.checked .circle::after {
+  content: '\2713';
+  display: inline-block;
+  font-size: 12px;
+  color: green;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeOut 4s;
+}
+
+.edit-icon {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 30px;
+}
+
+.history-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: #292929;
+  border-radius: 8px;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.dropdown-content {
+  display: inline;
+  position: absolute;
+  background-color: #292929;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 50px;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.up-icon,
+.history-icon {
+  width: 25px;
+  height: 25px;
+  flex: 0 0 auto;
+}
+
+.up-icon {
+  transform: scaleY(-1);
+}
+
+.deleted-task {
+  padding: 10px;
+  border-bottom: 1px solid #444;
+  display: flex;
+  align-items: center;
+}
+
+.deleted-task span {
+  flex: 1;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #888;
+  margin-left: 20px;
+  flex-shrink: 0;
+}
+
+#deletedTasksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.deleted-task:last-child {
+  border-bottom: none;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 15px;
   }
-  .dropdown-content.show {
-    display: block;
+
+  h1 {
+    font-size: 24px;
   }
 
-  .deleted-task span {
-    flex: 1;
+  #taskInput {
+    width: 60%;
   }
 
-  .timestamp {
-    font-size: 12px;
-    color: #888;
-    margin-left: 20px; 
+  .input-buttons button {
+    padding: 6px 12px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 10px;
   }
 
-  .deleted-task {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px; 
+  h1 {
+    font-size: 20px;
   }
 
-  .edit-icon{
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    right: 30px;
+  #taskInput {
+    width: 50%;
   }
-
-
-
-  
-
+}
