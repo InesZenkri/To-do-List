@@ -173,10 +173,12 @@ li {
 .timestamp {
   font-size: 12px;
   color: #888;
-  margin-left: 70%;
+  position: absolute;
+  right: 30px;
 }
 .deltxt {
   font-size: 14px;
+  
 }
 .task-text {
   font-size: 14px;
