@@ -170,11 +170,11 @@ function toggleDropdown() {
   dropdownVisible = !dropdownVisible;
   
   if (dropdownVisible) {
-    upIcon.classList.add('rotate');
+    upIcon.classList.toggle('rotate1');
     dropdown.classList.toggle('show');
     
   } else {
-    upIcon.classList.remove('rotate');
+    upIcon.classList.toggle('rotate2');
     dropdown.classList.toggle('hidden'); 
   }
 }

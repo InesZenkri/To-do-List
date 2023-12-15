@@ -165,12 +165,18 @@ li {
 }
 
 .up-icon {
-  transform: rotate(180deg);
+  transform: scaleY(-1);
+  transition: transform 0.3s ease !important;
 }
-
-.up-icon.rotate {
-  transform: rotate(180deg);
-  transition: transform 0.3s ease;
+/*
+.up-icon.rotate1 {
+  transform: scaleY(1) rotate(180deg) !important;
+  transition: transform 0.3s ease!important;
+}
+*/
+.up-icon.rotate2 {
+  transform: scaleY(-1) rotate(180deg) !important;
+  transition: transform 0.3s ease !important;
 }
 
 .deleted-task {
