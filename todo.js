@@ -2,7 +2,8 @@ let completedTasks = JSON.parse(localStorage.getItem('completedTasks')) || [];
 
 window.onload = function() {
   loadTasks();
-
+  //const upIcon = document.querySelector('.up-icon');
+  //upIcon.style.transform = 'scaleY(-1)';
   document.querySelector('.up-icon').addEventListener('click', function() {
     showDeletedTasks(); 
     toggleDropdown();
@@ -159,11 +160,26 @@ function addTask() {
   taskInput.value = "";
 }
 
+
+let dropdownVisible = false;
+
 function toggleDropdown() {
-  const dropdown = document.querySelector('.dropdown');
-  dropdown.classList.toggle('show');
+  const dropdown = document.querySelector('#deletedTasksList');
+  const upIcon = document.querySelector('.up-icon');
+
+  dropdownVisible = !dropdownVisible;
+  
+  if (dropdownVisible) {
+    upIcon.classList.add('rotate');
+    dropdown.classList.toggle('show');
+    
+  } else {
+    upIcon.classList.remove('rotate');
+    dropdown.classList.toggle('hidden'); 
+  }
 }
 
+/*
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -175,7 +191,7 @@ window.onclick = function(event) {
     }
   }
 };
-
+*/
 document.addEventListener('keypress', function(e) {
   if (e.key === 'Enter' && document.activeElement === document.getElementById('taskInput')) {
     addTask();

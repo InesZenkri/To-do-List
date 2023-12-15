@@ -145,8 +145,16 @@ li {
   z-index: 1;
 }
 
-.dropdown-content.show {
-  display: block;
+#deletedTasksList {
+  display: none;
+}
+
+#deletedTasksList.hidden {
+  display: none;
+}
+
+#deletedTasksList.show {
+  display: block ;
 }
 
 .up-icon,
@@ -157,8 +165,14 @@ li {
 }
 
 .up-icon {
-  transform: scaleY(-1);
+  transform: rotate(180deg);
 }
+
+.up-icon.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
 .deleted-task {
   padding: 10px;
   border-bottom: 1px solid #444;
@@ -193,6 +207,7 @@ li {
 .deleted-task:last-child {
   border-bottom: none;
 }
+
 
 
 @keyframes fadeOut {
