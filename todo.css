@@ -4,6 +4,7 @@ body {
   padding: 0;
   background-color: #1f1f1f;
   color: #fff;
+  
 }
 
 .container {
@@ -15,10 +16,11 @@ body {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  
 }
 
 .dropdown {
-  max-width: 90%;
+  max-width: 85%;
   min-width: 300px;
   margin: 20px auto;
   background-color: #292929;
@@ -128,10 +130,16 @@ li {
   animation: fadeOut 4s;
 }
 
-.edit-icon {
+.edit-icon{
   width: 25px;
   height: 25px;
   position: absolute;
+  right: 30px;
+}
+
+.undo-icon{
+  width: 20px;
+  height: 20px;
   right: 30px;
 }
 
@@ -174,6 +182,7 @@ li {
   transform: scaleY(-1);
   transition: transform 0.3s ease !important;
 }
+
 /*
 .up-icon.rotate1 {
   transform: scaleY(1) rotate(180deg) !important;
@@ -190,6 +199,7 @@ li {
   border-bottom: 1px solid #444;
   display: flex;
   align-items: center;
+
 }
 
 .deleted-task span {
@@ -199,8 +209,6 @@ li {
 .timestamp {
   font-size: 12px;
   color: #888;
-  position: absolute;
-  right: 30px;
 }
 .deltxt {
   font-size: 14px;

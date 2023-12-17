@@ -78,11 +78,86 @@ function showDeletedTasks() {
     return `<li class="deleted-task">
               <span class="deltxt">${task.taskName}</span>
               <span class="timestamp">${task.timestamp}</span>
+              <img src="srs/undo.png" alt="Undo" class="undo-icon" title="Undo" onclick="undoTask('${task.taskName}', '${task.timestamp}')">
             </li>`;
   }).join('');
 
   deletedTasksList.innerHTML = deletedHTML;
   
+}
+
+function getDeletedTasksLength() {
+  const deletedTasksJSON = localStorage.getItem('completedTasks');
+  if (deletedTasksJSON) {
+    const deletedTasks = JSON.parse(deletedTasksJSON);
+    return deletedTasks.length;
+  } else {
+    return 0; 
+  }
+}
+
+function undoTask(taskName, timestamp) {
+  const dropdown = document.querySelector('#deletedTasksList');
+  const upIcon = document.querySelector('.up-icon');
+  const taskIndex = completedTasks.findIndex(task => task.taskName === taskName && task.timestamp === timestamp);
+  if (taskIndex !== -1) {
+    const undoneTask = completedTasks.splice(taskIndex, 1)[0];
+    saveCompletedTasks();
+    addTaskBackToTaskList(undoneTask.taskName);
+    showDeletedTasks();
+    if(getDeletedTasksLength() === 0){
+      upIcon.classList.toggle('rotate2');
+      dropdown.classList.toggle('hidden'); 
+    }
+  }
+}
+
+function addTaskBackToTaskList(taskName) {
+  var taskList = document.getElementById("taskList");
+  var li = document.createElement("li");
+  var inputValue = taskName; 
+
+  var circleSpan = document.createElement("span");
+  circleSpan.className = "circle";
+  li.appendChild(circleSpan);
+
+  var textSpan = document.createElement("span");
+  textSpan.className = "task-text";
+  var textNode = document.createTextNode(inputValue);
+  textSpan.appendChild(textNode);
+  li.appendChild(textSpan);
+
+  var editIcon = document.createElement("img");
+  editIcon.src = "srs/edit.png";
+  editIcon.alt = "Edit";
+  editIcon.className = "edit-icon";
+  editIcon.setAttribute("title", "Edit"); 
+  li.appendChild(editIcon);
+  taskList.appendChild(li);
+  saveTasks();
+  li.ondblclick = function() {
+    makeTaskEditable(li);
+  };
+
+  editIcon.onclick = function(event) {
+    event.stopPropagation();
+    makeTaskEditable(li);
+  };
+
+  circleSpan.onclick = function(event) {
+    event.stopPropagation();
+    li.classList.toggle("checked");
+    markTaskAsCompleted(li);
+    setTimeout(function() {
+      li.remove();
+      saveTasks();
+    }, 1000
+    );
+  };
+
+  textSpan.onclick = function(event) {
+    event.stopPropagation();
+  };
 }
 
 function makeTaskEditable(taskElement) {
@@ -124,6 +199,7 @@ function addTask() {
   editIcon.src = "srs/edit.png";
   editIcon.alt = "Edit";
   editIcon.className = "edit-icon";
+  editIcon.setAttribute("title", "Edit"); 
   li.appendChild(editIcon);
 
   if (inputValue === '') {
@@ -160,22 +236,35 @@ function addTask() {
   taskInput.value = "";
 }
 
+function getDeletedTasks() {
+  const deletedTasksJSON = localStorage.getItem('completedTasks');
+  if (deletedTasksJSON) {
+    const deletedTasks = JSON.parse(deletedTasksJSON);
+    return deletedTasks;
+  } else {
+    return [];
+  }
+}
 
 let dropdownVisible = false;
 
 function toggleDropdown() {
   const dropdown = document.querySelector('#deletedTasksList');
   const upIcon = document.querySelector('.up-icon');
-
-  dropdownVisible = !dropdownVisible;
-  
-  if (dropdownVisible) {
-    upIcon.classList.toggle('rotate1');
-    dropdown.classList.toggle('show');
-    
+  const deletedTasks = getDeletedTasks();
+  if (completedTasks.length === 0 && deletedTasks.length === 0) {
+    alert("Empty Archive");
   } else {
-    upIcon.classList.toggle('rotate2');
-    dropdown.classList.toggle('hidden'); 
+    dropdownVisible = !dropdownVisible;
+    
+    if (dropdownVisible) {
+      upIcon.classList.toggle('rotate1');
+      dropdown.classList.toggle('show');
+      
+    } else {
+      upIcon.classList.toggle('rotate2');
+      dropdown.classList.toggle('hidden'); 
+    }
   }
 }
 
