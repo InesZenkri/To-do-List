@@ -6,7 +6,8 @@
 <h1 align="center">To Do List ༼ つ ◕_◕ ༽つ <3 </h1>
 
 <p align="center">
-  <strong>A simple, minimalist To Do list web app to track your tasks and goals that utilizes local storage to persist them even after the page is refreshed or closed  • ᴗ - </strong>
+  <p>
+  The To-Do List web application is your personal task manager designed to streamline your daily organization • ᴗ - </p>
 </p>
 
 <p align="center">
@@ -14,6 +15,8 @@
   <a href="#features">Features</a> •
   <a href="#how-to-use">How to Use</a> •
   <a href="#demo">Demo</a> •
+  <a href="#Acknowledgements">Acknowledgementso</a> •
+  <a href="#License">License</a> •
  
 </p>
 
@@ -25,7 +28,7 @@
 
 ## Features
 
-- Easily add tasks with a goal marker.
+- Easily add, edit and delete tasks.
 - Mark tasks as completed with a visually satisfying circle indicator.
 - Tasks automatically disappear upon completion, keeping your list tidy.
 - The tasks are stored in the browser's local storage, ensuring they persist across sessions.
@@ -41,9 +44,9 @@
   
    - Open`index.html` in your preferred web browser.
 
-2. **Or simply visit :**
+2. **Website :**
 
-   - [ineszenkri.github.io/To-do-List](https://ineszenkri.github.io/To-do-List/)
+   - Or access the live version [here](https://ineszenkri.github.io/To-do-List/). 🚀
   
 3. Start organizing your tasks and achieving your goals! 
 
@@ -52,4 +55,15 @@
 
 ![Demo](demo.gif)
 
+
+## Acknowledgements
+- Icons made by [Freepik](https://www.freepik.com) from [www.flaticon.com](https://www.flaticon.com) 🎨
+
+## Contributing
+Contributions are welcome! Feel free to [open issues](https://github.com/InesZenkri/To-do-List/issues) or submit pull requests. 🤝
+
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). 📜
 

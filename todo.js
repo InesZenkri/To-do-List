@@ -5,8 +5,13 @@ window.onload = function() {
   //const upIcon = document.querySelector('.up-icon');
   //upIcon.style.transform = 'scaleY(-1)';
   document.querySelector('.up-icon').addEventListener('click', function() {
-    showDeletedTasks(); 
-    toggleDropdown();
+    const deletedTasks = getDeletedTasks();
+    if (completedTasks.length === 0 && deletedTasks.length === 0) {
+      alert("Empty Archive");
+    } else {
+        showDeletedTasks(); 
+        toggleDropdown();
+      } 
   });
 };
 
@@ -220,10 +225,7 @@ let dropdownVisible = false;
 function toggleDropdown() {
   const dropdown = document.querySelector('#deletedTasksList');
   const upIcon = document.querySelector('.up-icon');
-  const deletedTasks = getDeletedTasks();
-  if (completedTasks.length === 0 && deletedTasks.length === 0) {
-    alert("Empty Archive");
-  } else {
+
     dropdownVisible = !dropdownVisible;
     
     if (dropdownVisible) {
@@ -234,7 +236,6 @@ function toggleDropdown() {
       upIcon.classList.toggle('rotate2');
       dropdown.classList.toggle('hidden'); 
     }
-  }
 }
 
 
