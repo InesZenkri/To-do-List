@@ -54,37 +54,6 @@ function saveTasks() {
   localStorage.setItem("tasks", taskList.innerHTML);
 }
 
-function markTaskAsCompleted(taskElement) {
-  const taskName = taskElement.querySelector(".task-text").innerText;
-  const timestamp = new Date().toLocaleString();
-  
-  const taskDetails = {
-    taskName: taskName,
-    timestamp: timestamp
-  };
-
-  completedTasks.push(taskDetails);
-  saveCompletedTasks();
-}
-
-function saveCompletedTasks() {
-  localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
-}
-
-function showDeletedTasks() {
-  const deletedTasksList = document.getElementById('deletedTasksList');
-  const containerWidth = document.querySelector('.dropdown').offsetWidth;
-  const deletedHTML = completedTasks.map(task => {
-    return `<li class="deleted-task">
-              <span class="deltxt">${task.taskName}</span>
-              <span class="timestamp">${task.timestamp}</span>
-              <img src="srs/undo.png" alt="Undo" class="undo-icon" title="Undo" onclick="undoTask('${task.taskName}', '${task.timestamp}')">
-            </li>`;
-  }).join('');
-
-  deletedTasksList.innerHTML = deletedHTML;
-  
-}
 
 function getDeletedTasksLength() {
   const deletedTasksJSON = localStorage.getItem('completedTasks');
@@ -267,6 +236,44 @@ function toggleDropdown() {
     }
   }
 }
+
+
+function markTaskAsCompleted(taskElement) {
+  const taskName = taskElement.querySelector(".task-text").innerText;
+  const dropdown = document.querySelector('#deletedTasksList');
+  const timestamp = new Date().toLocaleString();
+  
+  const taskDetails = {
+    taskName: taskName,
+    timestamp: timestamp
+  };
+  completedTasks.push(taskDetails);
+  saveCompletedTasks();
+  if(dropdown.classList.contains('show')) {
+    console.log('habtet');
+    showDeletedTasks();
+}
+}
+
+function saveCompletedTasks() {
+  localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
+}
+
+function showDeletedTasks() {
+  const deletedTasksList = document.getElementById('deletedTasksList');
+  const containerWidth = document.querySelector('.dropdown').offsetWidth;
+  const deletedHTML = completedTasks.map(task => {
+    return `<li class="deleted-task">
+              <span class="deltxt">${task.taskName}</span>
+              <span class="timestamp">${task.timestamp}</span>
+              <img src="srs/undo.png" alt="Undo" class="undo-icon" title="Undo" onclick="undoTask('${task.taskName}', '${task.timestamp}')">
+            </li>`;
+  }).join('');
+
+  deletedTasksList.innerHTML = deletedHTML;
+  
+}
+
 
 /*
 window.onclick = function(event) {
