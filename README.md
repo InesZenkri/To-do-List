@@ -60,10 +60,10 @@
 - Icons made by [Freepik](https://www.freepik.com) from [www.flaticon.com](https://www.flaticon.com) 🎨
 
 ## Contributing
-Contributions are welcome! Feel free to [open issues](https://github.com/InesZenkri/To-do-List/issues) or submit pull requests. 🤝
+- Contributions are welcome ˶ᵔ ᵕ ᵔ˶ Feel free to [open issues](https://github.com/InesZenkri/To-do-List/issues) or submit pull requests. 🤝
 
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). 📜
+- This project is licensed under the [MIT License](LICENSE). 📜
 
