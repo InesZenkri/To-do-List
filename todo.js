@@ -33,16 +33,19 @@ function loadTasks() {
       };
 
       let circleSpan = li.querySelector('.circle');
+
       circleSpan.onclick = function(event) {
-        event.stopPropagation();
+      event.stopPropagation();
+      if (!circleSpan.classList.contains("disabled")) {
+        circleSpan.classList.add("disabled");
         li.classList.toggle("checked");
         markTaskAsCompleted(li);
         setTimeout(function() {
           li.remove();
           saveTasks();
-        }, 1000
-        );
-      };
+        }, 1000);
+      }
+    };
 
       let textSpan = li.querySelector('.task-text');
       textSpan.onclick = function(event) {
@@ -118,13 +121,15 @@ function addTaskBackToTaskList(taskName) {
 
   circleSpan.onclick = function(event) {
     event.stopPropagation();
-    li.classList.toggle("checked");
-    markTaskAsCompleted(li);
-    setTimeout(function() {
-      li.remove();
-      saveTasks();
-    }, 1000
-    );
+    if (!circleSpan.classList.contains("disabled")) {
+      circleSpan.classList.add("disabled");
+      li.classList.toggle("checked");
+      markTaskAsCompleted(li);
+      setTimeout(function() {
+        li.remove();
+        saveTasks();
+      }, 1000);
+    }
   };
 
   textSpan.onclick = function(event) {

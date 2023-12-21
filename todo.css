@@ -1,26 +1,48 @@
 body {
   font-family: 'Fira Code', monospace;
-  margin: 0;
-  padding: 0;
-  background-color: #1f1f1f;
-  color: #fff;
-  
+  background: linear-gradient(-45deg, #ff6c00, #ff9500, #3498db, #2ecc71);
+  background-size: 400% 400%;
+  animation: gradientAnimation 20s ease infinite;
+  color: #fff; 
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.slider{
+  background: var(--black);
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  z-index: 99;
 }
 
 .container {
   max-width: 90%;
   min-width: 300px;
+  min-height: 150px;
   margin: 20px auto;
   position: relative;
   background-color: #292929;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  
+    
 }
 
 .dropdown {
-  max-width: 85%;
+  max-width: 90%;
   min-width: 300px;
   margin: 20px auto;
   background-color: #292929;
@@ -236,8 +258,8 @@ li {
 }
 
 @media screen and (max-width: 768px) {
-  .container {
-    padding: 15px;
+.container.dropdown{
+    padding: 20px;
   }
 
   h1 {
@@ -256,8 +278,8 @@ li {
 
 
 @media screen and (max-width: 480px) {
-  .container {
-    padding: 10px;
+  .container.dropdown {
+    padding: 20px;
   }
 
   h1 {

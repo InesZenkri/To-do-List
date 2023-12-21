@@ -2,7 +2,7 @@
   "name": "To-Do-List",
   "short_name": "ToDo",
   "description": "A simple To-Do List application",
-  "start_url": "index.html",
+  "start_url": "/index.html",
   "main": "index.js",
   "repository": "https://github.com/InesZenkri/To-do-List",
   "url": "https://ineszenkri.github.io/To-do-List/",
