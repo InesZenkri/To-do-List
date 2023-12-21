@@ -61,6 +61,7 @@ body {
 h1 {
   text-align: center;
   font-size: 36px;
+  transition: all 0.3s ease;
 }
 
 h4 {
@@ -163,6 +164,7 @@ li {
   width: 20px;
   height: 20px;
   right: 30px;
+  transition: all 0.3s ease;
 }
 
 .but:active {
@@ -273,6 +275,10 @@ li {
   .input-buttons button {
     padding: 6px 12px;
   }
+  .undo-icon{
+    width: 15px;
+    height: 15px;
+  }
  
 }
 
@@ -290,4 +296,8 @@ li {
     width: 50%;
   }
 
+  .undo-icon{
+    width: 15px;
+    height: 15px;
+  }
 }
