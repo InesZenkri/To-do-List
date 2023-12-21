@@ -1,17 +1,15 @@
 let completedTasks = JSON.parse(localStorage.getItem('completedTasks')) || [];
-
+let clickCount = 0;
 window.onload = function() {
   loadTasks();
-  //const upIcon = document.querySelector('.up-icon');
-  //upIcon.style.transform = 'scaleY(-1)';
   document.querySelector('.up-icon').addEventListener('click', function() {
     const deletedTasks = getDeletedTasks();
     if (completedTasks.length === 0 && deletedTasks.length === 0) {
       alert("Empty Archive");
     } else {
-        showDeletedTasks(); 
-        toggleDropdown();
-      } 
+      showDeletedTasks();
+      toggleDropdown();
+    }
   });
 };
 
@@ -183,6 +181,7 @@ function addTask() {
     saveTasks();
 
     li.ondblclick = function() {
+      handleTaskDoubleClick(li);
       makeTaskEditable(li);
     };
 
@@ -193,13 +192,15 @@ function addTask() {
 
     circleSpan.onclick = function(event) {
       event.stopPropagation();
-      li.classList.toggle("checked");
-      markTaskAsCompleted(li);
-      setTimeout(function() {
-        li.remove();
-        saveTasks();
-      }, 1000
-      );
+      if (!circleSpan.classList.contains("disabled")) {
+        circleSpan.classList.add("disabled");
+        li.classList.toggle("checked");
+        markTaskAsCompleted(li);
+        setTimeout(function() {
+          li.remove();
+          saveTasks();
+        }, 1000);
+      }
     };
 
     textSpan.onclick = function(event) {
@@ -248,7 +249,7 @@ function markTaskAsCompleted(taskElement) {
     taskName: taskName,
     timestamp: timestamp
   };
-  completedTasks.push(taskDetails);
+completedTasks.push(taskDetails);
   saveCompletedTasks();
   if(dropdown.classList.contains('show')) {
     console.log('habtet');
@@ -258,6 +259,13 @@ function markTaskAsCompleted(taskElement) {
 
 function saveCompletedTasks() {
   localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
+}
+
+function handleTaskDoubleClick(taskElement) {
+  clickCount++;
+  if (clickCount >= 2) {
+    taskElement.removeEventListener("dblclick", handleTaskDoubleClick);
+  }
 }
 
 function showDeletedTasks() {
@@ -275,20 +283,6 @@ function showDeletedTasks() {
   
 }
 
-
-/*
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    for (var i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-};
-*/
 document.addEventListener('keypress', function(e) {
   if (e.key === 'Enter' && document.activeElement === document.getElementById('taskInput')) {
     addTask();
