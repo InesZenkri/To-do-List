@@ -108,6 +108,13 @@ function addTaskBackToTaskList(taskName) {
   editIcon.className = "edit-icon";
   editIcon.setAttribute("title", "Edit"); 
   li.appendChild(editIcon);
+
+  var delIcon = document.createElement("img");
+  delIcon.src = "srs/delete.png";
+  delIcon.alt = "del";
+  delIcon.className = "delicon";
+  delIcon.setAttribute("title", "Delete"); 
+  li.appendChild(delIcon);
   taskList.appendChild(li);
   saveTasks();
   li.ondblclick = function() {
@@ -156,6 +163,7 @@ function makeTaskEditable(taskElement) {
   });
 }
 
+
 function addTask() {
   var taskInput = document.getElementById("taskInput");
   var taskList = document.getElementById("taskList");
@@ -178,7 +186,12 @@ function addTask() {
   editIcon.className = "edit-icon";
   editIcon.setAttribute("title", "Edit"); 
   li.appendChild(editIcon);
-
+  var delIcon = document.createElement("img");
+  delIcon.src = "srs/delete.png";
+  delIcon.alt = "del";
+  delIcon.className = "delicon";
+  delIcon.setAttribute("title", "Delete"); 
+  li.appendChild(delIcon);
   if (inputValue === '') {
     alert("Please enter a task!");
   } else {
@@ -212,6 +225,12 @@ function addTask() {
       event.stopPropagation();
     };
   }
+  delIcon.onclick = function(event) {
+    event.stopPropagation(); 
+    var listItem = this.parentElement;
+    listItem.remove(); 
+    saveTasks(); 
+  };
 
   taskInput.value = "";
 }

@@ -1,9 +1,10 @@
 body {
   font-family: 'Fira Code', monospace;
-  background: linear-gradient(-45deg, #ff6c00, #ff9500, #3498db, #2ecc71);
+  background: linear-gradient(-45deg, #e65b15, #333333, #555555, #777777);
   background-size: 400% 400%;
   animation: gradientAnimation 20s ease infinite;
   color: #fff; 
+  min-height: 100vh;
 }
 @keyframes gradientAnimation {
   0% {
@@ -17,27 +18,18 @@ body {
   }
 }
 
-.slider{
-  background: var(--black);
-  position:fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateY(100%);
-  z-index: 99;
-}
-
 .container {
   max-width: 90%;
   min-width: 300px;
   min-height: 150px;
-  margin: 20px auto;
+  margin: 0px auto;
   position: relative;
   background-color: #292929;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  
     
 }
 
@@ -157,16 +149,25 @@ li {
   width: 25px;
   height: 25px;
   position: absolute;
+  right: 60px;
+}
+.delicon{
+  width: 23px;
+  height: 23px;
+  position: absolute;
   right: 30px;
 }
 
 .undo-icon{
   width: 20px;
   height: 20px;
-  right: 30px;
   transition: all 0.3s ease;
 }
-
+.deleted-task img {
+  display: inline-block;
+  vertical-align: middle;
+  justify-content: space-around;
+}
 .but:active {
   background-image: linear-gradient(to bottom right, red, yellow);
   box-shadow: 0 1px #444;
@@ -251,7 +252,6 @@ li {
 .deleted-task:last-child {
   border-bottom: none;
 }
-
 
 
 @keyframes fadeOut {
