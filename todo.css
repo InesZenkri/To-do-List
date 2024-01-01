@@ -1,21 +1,9 @@
 body {
   font-family: 'Fira Code', monospace;
-  background: linear-gradient(-45deg, #e65b15, #333333, #555555, #777777);
-  background-size: 400% 400%;
-  animation: gradientAnimation 20s ease infinite;
-  color: #fff; 
+  background-image: url("srs/bg.jpeg");
+  background-size: 100% 100%;
+  color: #f8ecd2; 
   min-height: 100vh;
-}
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 .container {
@@ -54,43 +42,64 @@ h1 {
   text-align: center;
   font-size: 36px;
   transition: all 0.3s ease;
+  user-select: none;
+}
+.wave {
+  display: inline-block;
+  position: relative;
+  animation: wave 1.5s infinite linear;
 }
 
+@keyframes wave {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
 h4 {
   margin: 0;
   flex: 1;
-  color: #fff;
   font-size: 16px;
-  margin-left: 10px; 
+  margin-left: 10px;
+  user-select: none;
 }
 
 #taskInput {
   width: 70%;
-  padding: 8px;
+  padding: 10px;
+  font-size: 15px;
   background-color: #444;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-top-left-radius: 17px;
+  border-bottom-left-radius: 17px;
   flex: 1;
+  font-family: 'Fira Code', monospace;
 }
 
 .input-buttons button {
-  padding: 8px 16px;
-  background-color: #ff6c00;
-  color: #fff;
+  background-color: #f47026;
+  color: rgb(0, 0, 0);
+  font-family: 'Fira Code', monospace;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
-  margin-left: 10px;
-  box-shadow: 0 2px #444;
+  border: none;
+  outline: none; 
+  padding: 10px;
+  font-size: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  min-width: 100px;
+  transition: box-shadow 200ms ease, background-color 200ms ease-in-out;
 }
 
 h1.title {
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
 button:hover {
-  background-color: #ff9500;
+  background-color: #f8ecd2;
+  box-shadow: #fff8 0 0 10px;
+  cursor: pointer;
 }
 
 ul {
@@ -104,6 +113,7 @@ li {
   border-bottom: 1px solid #444;
   display: flex;
   align-items: center;
+  user-select: none;
 }
 
 .circle {
@@ -168,11 +178,7 @@ li {
   vertical-align: middle;
   justify-content: space-around;
 }
-.but:active {
-  background-image: linear-gradient(to bottom right, red, yellow);
-  box-shadow: 0 1px #444;
-  transform: translateY(2px);
-}
+
 .history-button {
   display: flex;
   align-items: center;
@@ -232,15 +238,14 @@ li {
 }
 
 .timestamp {
-  font-size: 12px;
+  font-size: 13px;
   color: #888;
 }
 .deltxt {
-  font-size: 14px;
-  
+  font-size: 15px;
 }
 .task-text {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 #deletedTasksList {
@@ -253,12 +258,10 @@ li {
   border-bottom: none;
 }
 
-
 @keyframes fadeOut {
   0% { opacity: 1; }
   100% { opacity: 0; }
 }
-
 @media screen and (max-width: 768px) {
 .container.dropdown{
     padding: 20px;
@@ -272,9 +275,6 @@ li {
     width: 60%;
   }
 
-  .input-buttons button {
-    padding: 6px 12px;
-  }
   .undo-icon{
     width: 15px;
     height: 15px;
