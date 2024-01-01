@@ -13,6 +13,8 @@ window.onload = function() {
   });
 };
 
+
+
 function loadTasks() {
   var taskList = document.getElementById("taskList");
   var tasks = localStorage.getItem("tasks");
@@ -34,19 +36,9 @@ function loadTasks() {
 
       let circleSpan = li.querySelector('.circle');
 
-      circleSpan.onclick = function(event) {
-      event.stopPropagation();
-      if (!circleSpan.classList.contains("disabled")) {
-        circleSpan.classList.add("disabled");
-        li.classList.toggle("checked");
-        markTaskAsCompleted(li);
-        setTimeout(function() {
-          li.remove();
-          saveTasks();
-        }, 1000);
-      }
-    };
+      circle_animation(circleSpan,li);
 
+    never_see_task_again(li);
       let textSpan = li.querySelector('.task-text');
       textSpan.onclick = function(event) {
         event.stopPropagation();
@@ -54,6 +46,16 @@ function loadTasks() {
     });
   }
 }
+
+function never_see_task_again(li){
+  let delIcon = li.querySelector('.delicon');
+  delIcon.onclick = function(event) {
+    event.stopPropagation(); 
+    var listItem = this.parentElement;
+    listItem.remove(); 
+    saveTasks(); 
+  };
+};
 
 function saveTasks() {
   var taskList = document.getElementById("taskList");
@@ -126,22 +128,12 @@ function addTaskBackToTaskList(taskName) {
     makeTaskEditable(li);
   };
 
-  circleSpan.onclick = function(event) {
-    event.stopPropagation();
-    if (!circleSpan.classList.contains("disabled")) {
-      circleSpan.classList.add("disabled");
-      li.classList.toggle("checked");
-      markTaskAsCompleted(li);
-      setTimeout(function() {
-        li.remove();
-        saveTasks();
-      }, 1000);
-    }
-  };
+  circle_animation(circleSpan,li);
 
   textSpan.onclick = function(event) {
     event.stopPropagation();
   };
+  never_see_task_again(li);
 }
 
 function makeTaskEditable(taskElement) {
@@ -207,34 +199,30 @@ function addTask() {
       event.stopPropagation();
       makeTaskEditable(li);
     };
-
-    circleSpan.onclick = function(event) {
-      event.stopPropagation();
-      if (!circleSpan.classList.contains("disabled")) {
-        circleSpan.classList.add("disabled");
-        li.classList.toggle("checked");
-        markTaskAsCompleted(li);
-        setTimeout(function() {
-          li.remove();
-          saveTasks();
-        }, 1000);
-      }
-    };
+    circle_animation(circleSpan,li);
 
     textSpan.onclick = function(event) {
       event.stopPropagation();
     };
   }
-  delIcon.onclick = function(event) {
-    event.stopPropagation(); 
-    var listItem = this.parentElement;
-    listItem.remove(); 
-    saveTasks(); 
-  };
-
+  never_see_task_again(li);
   taskInput.value = "";
 }
 
+function circle_animation(circleSpan,li){
+  circleSpan.onclick = function(event) {
+    event.stopPropagation();
+    if (!circleSpan.classList.contains("disabled")) {
+      circleSpan.classList.add("disabled");
+      li.classList.toggle("checked");
+      markTaskAsCompleted(li);
+      setTimeout(function() {
+        li.remove();
+        saveTasks();
+      }, 1000);
+    }
+  }
+}
 function getDeletedTasks() {
   const deletedTasksJSON = localStorage.getItem('completedTasks');
   if (deletedTasksJSON) {
