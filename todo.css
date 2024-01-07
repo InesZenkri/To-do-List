@@ -160,6 +160,13 @@ li {
   transform: translate(-50%, -50%);
   animation: fadeOut 4s;
 }
+.edit-icon,
+.delicon,
+.up-icon,
+.history-icon,
+.undo-icon{
+  -webkit-user-drag: none;
+}
 
 .edit-icon{
   width: 25px;
