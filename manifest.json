@@ -1,5 +1,5 @@
 {
-  "name": "To-Do-List",
+  "name": "To Do",
   "short_name": "ToDo",
   "description": "A simple To-Do List application",
   "start_url": "/index.html",
@@ -13,8 +13,18 @@
   "icons": [
     {
       "src": "srs/check.png",
-      "sizes": "192x192",
+      "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+"screenshots": [
+  {
+    "src": "srs/looklike.png",
+    "sizes": "1920x1080",
+    "type": "image/png",
+    "platform": "desktop/phone",
+    "form_factor": "wide"
+  }
+
+]
 }

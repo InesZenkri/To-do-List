@@ -17,8 +17,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
-  
-    
+
 }
 
 .dropdown {
@@ -90,6 +89,7 @@ h4 {
   border-bottom-right-radius: 15px;
   min-width: 100px;
   transition: box-shadow 200ms ease, background-color 200ms ease-in-out;
+  transition: transform 0.2s ease;
 }
 
 h1.title {
@@ -100,11 +100,14 @@ button:hover {
   background-color: #f8ecd2;
   box-shadow: #fff8 0 0 10px;
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 ul {
   list-style-type: none;
   padding: 0;
+  max-height: 295px;
+  overflow-y: auto;
   
 }
 
@@ -114,7 +117,10 @@ li {
   display: flex;
   align-items: center;
   user-select: none;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
 }
+
 
 .circle {
   width: 16px;
@@ -192,14 +198,21 @@ li {
 
 #deletedTasksList {
   display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  overflow-y: auto;
 }
 
 #deletedTasksList.hidden {
   display: none;
+  max-height: 0;
+  transition: max-height 0.3s ease;
 }
 
 #deletedTasksList.show {
   display: block ;
+  max-height: 299px;
 }
 
 .up-icon,
@@ -256,6 +269,17 @@ li {
 
 .deleted-task:last-child {
   border-bottom: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeOut {
